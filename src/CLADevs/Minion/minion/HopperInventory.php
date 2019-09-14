@@ -50,7 +50,7 @@ class HopperInventory extends CustomInventory{
         $w = new NetworkLittleEndianNBTStream;
         $nbt = new CompoundTag("", []);
         $nbt->setString("id", "Hopper");
-        $nbt->setString("CustomName", C::GOLD . "Settings");
+        $nbt->setString("CustomName", C::GOLD . "§l§bFarming");
         $pk = new BlockActorDataPacket();
         $pk->x = $this->getHolder()->getX();
         $pk->y = $this->getHolder()->getY();
@@ -80,7 +80,7 @@ class HopperInventory extends CustomInventory{
 
     public function getDestoryItem(): Item{
         $item = Item::get(Item::REDSTONE_DUST);
-        $item->setCustomName(C::RED . "Destorys the miner");
+        $item->setCustomName(C::RED . "Destorys the Farmer");
         return $item;
     }
 
@@ -93,7 +93,7 @@ class HopperInventory extends CustomInventory{
     }
 
     public function getLevelItem(): Item{
-        $item = Item::get(Item::EMERALD);
+        $item = Item::get(Item::GOLD_INGOT);
         $item->setCustomName(C::LIGHT_PURPLE . "Level: " . C::YELLOW . $this->entity->getLevelM());
         $item->setLore([C::LIGHT_PURPLE . "Cost: " . C::YELLOW . "$" . $this->entity->getCost()]);
         return $item;
