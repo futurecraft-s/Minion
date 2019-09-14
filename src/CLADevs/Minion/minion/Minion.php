@@ -89,11 +89,11 @@ class Minion extends Human{
     }
 
     public function sendSpawnItems(): void{
-        $this->getInventory()->setItemInHand(Item::get(Item::DIAMOND_PICKAXE));
-        $this->getArmorInventory()->setHelmet( Item::get(Item::SKULL, 3));
-        $this->getArmorInventory()->setChestplate(Item::get(Item::LEATHER_CHESTPLATE));
-        $this->getArmorInventory()->setLeggings(Item::get(Item::LEATHER_LEGGINGS));
-        $this->getArmorInventory()->setBoots(Item::get(Item::LEATHER_BOOTS));
+        $this->getInventory()->setItemInHand(Item::get(Item::DIAMOND_HOE));
+        $this->getArmorInventory()->setHelmet( Item::get(Item::SKULL, 2));
+        $this->getArmorInventory()->setChestplate(Item::get(Item::IRON_CHESTPLATE));
+        $this->getArmorInventory()->setLeggings(Item::get(Item::IRON_LEGGINGS));
+        $this->getArmorInventory()->setBoots(Item::get(Item::IRON_BOOTS));
     }
 
     public function getLookingBlock(): Block{
@@ -159,7 +159,7 @@ class Minion extends Human{
         if($tile instanceof \pocketmine\tile\Chest){
             $inv = $tile->getInventory();
             if(Main::get()->getConfig()->getNested("blocks.normal")){
-                foreach($block->getDropsForCompatibleTool(Item::get(Item::DIAMOND_PICKAXE)) as $drop){
+                foreach($block->getDropsForCompatibleTool(Item::get(Item::DIAMOND_HOE)) as $drop){
                     $inv->addItem($drop);
                 }
             }else{
